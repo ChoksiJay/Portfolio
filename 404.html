@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Checks if the URL is a direct file request (likely not part of your SPA routing)
+        if (location.pathname.startsWith('/Portfolio/') && !location.pathname.endsWith('.html')) {
+            // Redirect any non-direct file access to the home route, letting React Router handle the routing
+            window.location.replace('/Portfolio/' + location.search + location.hash);
+        }
+    </script>      
     <title>Page Not Found</title>
     <script>
         // This script redirects to the correct route by removing the base URL
